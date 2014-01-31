@@ -1,23 +1,8 @@
-<%= form_for(@play) do |f| %>
-  <% if @play.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
-
-      <ul>
-      <% @play.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@show, @show.plays.build]) do |f| %>
 
   <div class="field">
-    <%= f.label :references %><br>
-    <%= f.text_field :references %>
-  </div>
-  <div class="field">
-    <%= f.label :references %><br>
-    <%= f.text_field :references %>
+    <%= f.label :improviser %><br>
+    <%= f.collection_select( :improviser_id, Improviser.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

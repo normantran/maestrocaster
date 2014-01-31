@@ -69,6 +69,6 @@ class ImprovisersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def improviser_params
-      params.require(:improviser).permit(:string)
+      params.require(:improviser).permit(:name)
     end
 end

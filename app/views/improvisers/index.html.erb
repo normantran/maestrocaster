@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>String</th>
+      <th>Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @improvisers.each do |improviser| %>
       <tr>
-        <td><%= improviser.string %></td>
+        <td><%= improviser.name %></td>
         <td><%= link_to 'Show', improviser %></td>
         <td><%= link_to 'Edit', edit_improviser_path(improviser) %></td>
         <td><%= link_to 'Destroy', improviser, method: :delete, data: { confirm: 'Are you sure?' } %></td>

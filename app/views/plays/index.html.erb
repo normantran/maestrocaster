@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>References</th>
-      <th>References</th>
+      <th>Improviser</th>
+      <th>Show</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +14,8 @@
   <tbody>
     <% @plays.each do |play| %>
       <tr>
-        <td><%= play.references %></td>
-        <td><%= play.references %></td>
+        <td><%= play.improviser %></td>
+        <td><%= play.show %></td>
         <td><%= link_to 'Show', play %></td>
         <td><%= link_to 'Edit', edit_play_path(play) %></td>
         <td><%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %></td>

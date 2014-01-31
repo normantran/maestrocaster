@@ -1,1 +1,1 @@
-json.extract! @improviser, :id, :string, :created_at, :updated_at
+json.extract! @improviser, :id, :name, :created_at, :updated_at

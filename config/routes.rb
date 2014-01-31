@@ -1,9 +1,9 @@
 MaestroCaster::Application.routes.draw do
   root 'welcome#index'
   
-  resources :plays
-
-  resources :shows
+  resources :shows do
+    resources :plays
+  end
 
   resources :improvisers
 

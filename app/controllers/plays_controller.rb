@@ -24,17 +24,20 @@ class PlaysController < ApplicationController
   # POST /plays
   # POST /plays.json
   def create
-    @play = Play.new(play_params)
+    @show = Show.find(params[:show_id])
+    
+    @play = @show.plays.create(params[:play].permit(:improviser, :show)) #Play.new(play_params)
+    redirect_to show_path(@show)
 
-    respond_to do |format|
-      if @play.save
-        format.html { redirect_to @play, notice: 'Play was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @play }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @play.errors, status: :unprocessable_entity }
-      end
-    end
+    #respond_to do |format|
+    #  if @play.save
+    #    format.html { redirect_to @play, notice: 'Play was successfully created.' }
+    #    format.json { render action: 'show', status: :created, location: @play }
+    #  else
+    #    format.html { render action: 'new' }
+    #    format.json { render json: @play.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /plays/1
@@ -69,6 +72,6 @@ class PlaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def play_params
-      params.require(:play).permit(:references, :references)
+      params.require(:play).permit(:improviser, :show)
     end
 end
